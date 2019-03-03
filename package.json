@@ -1,0 +1,33 @@
+{
+  "name": "sms-ussd-http-request",
+  "version": "1.0.0",
+  "description": "Send & receive SMS / USSD from HTTP request and provide an flexible API (REST & GraphQL)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balzacLeGeek/sms-ussd-http-request.git"
+  },
+  "keywords": [
+    "sms",
+    "ussd",
+    "node",
+    "api"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^1.18.6"
+  },
+  "author": "balzacLeGeek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balzacLeGeek/sms-ussd-http-request/issues"
+  },
+  "homepage": "https://github.com/balzacLeGeek/sms-ussd-http-request#readme"
+}
