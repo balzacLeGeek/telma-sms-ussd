@@ -6,7 +6,7 @@ It uses [serial-at](https://github.com/kolonist/serial-at) node package and coul
 
 # Installation
 
-This project is not (yes) a node package so your must clone the repository:
+This project is not (yet) a node package so you must clone the repository:
 ```bash
 git clone https://github.com/balzacLeGeek/telma-sms-ussd.git
 ```
@@ -17,7 +17,7 @@ Plug in your modem (+ Telma Madagascar SIM Card) and if you are in Windows, run 
 mode
 ```
 
-This command should show somthing like this (The port can be COM1 .... COMXX)
+This command should show something like this (The port can be COM1 .... COMXX)
 
 ```bash
 Statut du périphérique COM16:
@@ -139,5 +139,7 @@ GET method to `http://127.0.0.1:1503/api/ussd/check?type=forfait_balance`.
 ***
 
 @author RAZAFIMANDIMBY Niaina Michaël (balzacLeGeek) 
+
 [b-project Antananarivo](https://b-project.mg) [Geek inside Madagascar](https://geek-inside.mg)
+
 <michaniainar@gmail.com>
