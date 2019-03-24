@@ -8,9 +8,13 @@ var cors = require('cors');
 // Config
 var server_config = require('./config/server');
 
+// API Routes
+var ussd_api = require('./routes/ussd');
+
 var app = express();
 
 app.use(cors());
+app.use('/api/ussd', ussd_api);
 
 var server = require('http').Server(app);
 

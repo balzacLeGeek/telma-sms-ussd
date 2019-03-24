@@ -18,7 +18,8 @@
     "api"
   ],
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "serial-at": "0.0.2"
   },
   "devDependencies": {
     "cors": "^2.8.5",
