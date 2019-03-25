@@ -1,7 +1,7 @@
 {
   "name": "sms-ussd-http-request",
   "version": "1.0.0",
-  "description": "Send & receive SMS / USSD from HTTP request and provide an flexible API (REST & GraphQL)",
+  "description": "Send & receive SMS / USSD from HTTP using Telma Madagascar, Modem (or Phone) and NodeJs to provide an flexible API (REST & GraphQL)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,9 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/balzacLeGeek/sms-ussd-http-request.git"
+    "url": "git+https://github.com/balzacLeGeek/telma-sms-ussd.git"
   },
   "keywords": [
+    "Mvola",
+    "Telma",
     "sms",
     "ussd",
     "node",
@@ -28,7 +30,7 @@
   "author": "balzacLeGeek",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/balzacLeGeek/sms-ussd-http-request/issues"
+    "url": "https://github.com/balzacLeGeek/telma-sms-ussd/issues"
   },
-  "homepage": "https://github.com/balzacLeGeek/sms-ussd-http-request#readme"
+  "homepage": "https://github.com/balzacLeGeek/telma-sms-ussd#readme"
 }
