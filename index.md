@@ -1,37 +1,145 @@
-## Welcome to GitHub Pages
+# Description
 
-You can use the [editor on GitHub](https://github.com/balzacLeGeek/telma-sms-ussd/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Very simple application to send USSD from HTTP using Telma Madagascar, Modem (or Phone) and NodeJs.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+It uses [serial-at](https://github.com/kolonist/serial-at) node package and could be used in with linux and windows.
 
-### Markdown
+# Installation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+This project is not (yet) a node package so you must clone the repository:
+```bash
+git clone https://github.com/balzacLeGeek/telma-sms-ussd.git
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Plug in your modem (+ Telma Madagascar SIM Card) and if you are in Windows, run this command to check the used port
 
-### Jekyll Themes
+```bash
+mode
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/balzacLeGeek/telma-sms-ussd/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This command should show something like this (The port can be COM1 .... COMXX)
 
-### Support or Contact
+```bash
+Statut du périphérique COM16:
+-----------------------------
+    Baud :            115200
+    Parité :          None
+    Bits de données : 8
+    Bits d’arrêt :    1
+    Temporisation :   OFF
+    XON/XOFF :        OFF
+    Protocole CTS :   OFF
+    Protocole DSR :   OFF
+    Sensibilité DSR : OFF
+    Circuit DTR :     OFF
+    Circuit RTS :     OFF
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+Statut du périphérique COM15:
+-----------------------------
+    Baud :            115200
+    Parité :          None
+    Bits de données : 8
+    Bits d’arrêt :    1
+    Temporisation :   OFF
+    XON/XOFF :        OFF
+    Protocole CTS :   OFF
+    Protocole DSR :   OFF
+    Sensibilité DSR : OFF
+    Circuit DTR :     OFF
+    Circuit RTS :     OFF
+
+
+Statut du périphérique CON:
+---------------------------
+    Lignes :          1000
+    Colonnes :        92
+    Vitesse clavier : 31
+    Délai clavier :   1
+    Page de codes :   850
+```
+
+# Configuration
+
+Before running the app, there are some configurations
+
+### /config/modem.js
+
+```JavaScript
+/*
+	(string) com: 'COMx' (Windows), '/dev/ttyUSBx' (Linux)
+	(array) options: { read_time : 'Max timeout for wait AT Command response' }
+*/
+module.exports = {
+	com : 'COM3',
+	option: {
+		read_time: 10000
+	}
+}
+```
+
+### /config/account.js
+
+```JavaScript
+// (4 int) pwd : Your Mvola Password
+module.exports = {
+	pwd : 'not_set'
+}
+```
+
+In case your want to check your Mvola account balance for example, your must provide your `Mvola password` so change `pwd` value
+
+# Usage
+
+To run the application, just start node serve
+
+```bash
+npm start
+```
+
+# API Routes (Avaible for this version)
+- [Mvola balance](#mvola-balance)
+- [Account balance](#account-balance)
+- [Forfait balance](#forfait-balance)
+
+## `Mvola balance`
+GET method to `http://127.0.0.1:1503/api/ussd/check?type=mvola_balance`.
+
+## `Account balance`
+GET method to `http://127.0.0.1:1503/api/ussd/check?type=account_balance`.
+
+## `Forfait balance`
+GET method to `http://127.0.0.1:1503/api/ussd/check?type=forfait_balance`.
+
+### API Response
+- [Error](#error)
+- [Success](#success)
+
+## `Error`
+
+```JavaScript
+{
+	"status": "RESPONSE_STATUS",
+	"error": {
+		"message": "RESPONSE_MESSAGE"
+	}
+}
+```
+## `Success`
+
+```JavaScript
+{
+	"status": "RESPONSE_STATUS",
+	"success": {
+		"message": "RESPONSE_MESSAGE"
+	}
+}
+```
+
+***
+
+@author RAZAFIMANDIMBY Niaina Michaël (balzacLeGeek) 
+
+[b-project Antananarivo](https://b-project.mg) [Geek inside Madagascar](https://geek-inside.mg)
+
+<michaniainar@gmail.com>
