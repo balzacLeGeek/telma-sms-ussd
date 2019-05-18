@@ -22,4 +22,4 @@ let port_number = server_config.port || 1212;
 app.set('port', port_number);
 server.listen(port_number);
 
-console.log("Great, server started and listening at port " + port_number);
+console.log("Great, server started and listening at http://localhost:" + port_number);
